@@ -1,0 +1,266 @@
+/* =========================
+   1. Thiết lập chung
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f6fb;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* =========================
+   2. Tiêu đề
+========================= */
+
+h1 {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    font-size: 32px;
+    font-weight: 750;
+    letter-spacing: -1px;
+    color: #172554;
+}
+
+/* =========================
+   3. Form thêm comment
+========================= */
+
+form {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e8edf5;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: 650;
+    color: #334155;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #1e293b;
+    background: #f8fafc;
+    border: 1px solid #dbe3ef;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+form input {
+    height: 46px;
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Hiệu ứng khi click vào ô nhập */
+
+form input:focus,
+form textarea:focus {
+    background: #ffffff;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+/* =========================
+   4. Nút Add Comment
+========================= */
+
+form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    color: #ffffff;
+    background: #4f46e5;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.18);
+    transition: background 0.2s ease, transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+form button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(79, 70, 229, 0.25);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   5. Danh sách comment
+========================= */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* =========================
+   6. Thẻ comment
+========================= */
+
+.comment-item {
+    position: relative;
+    padding: 24px 26px;
+    background: #ffffff;
+    border: 1px solid #e8edf5;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.035);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-item:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+}
+
+/* =========================
+   7. Avatar người bình luận
+========================= */
+
+.img-user-cmt {
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin: 0 14px 12px 0;
+    object-fit: cover;
+    border: 2px solid #eef2ff;
+    border-radius: 50%;
+    background: #eef2ff;
+}
+
+/* =========================
+   8. Tên người dùng
+========================= */
+
+.name-user-cmt {
+    margin: 0;
+    padding-top: 1px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   9. Email
+========================= */
+
+.email-user-cmt {
+    margin: 2px 0 18px;
+    font-size: 13px;
+    color: #64748b;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   10. Nội dung comment
+========================= */
+
+.body-user-cmt {
+    clear: both;
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #475569;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* =========================
+   11. Thời gian bình luận
+========================= */
+
+.time-user-cmt {
+    margin: 16px 0 0;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* =========================
+   12. Responsive - Điện thoại
+========================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 24px 14px;
+    }
+
+    h1 {
+        margin-bottom: 22px;
+        font-size: 27px;
+    }
+
+    form {
+        margin-bottom: 24px;
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    .container {
+        gap: 12px;
+    }
+
+    .comment-item {
+        padding: 20px 18px;
+        border-radius: 13px;
+    }
+
+    .img-user-cmt {
+        width: 42px;
+        height: 42px;
+        margin-right: 12px;
+    }
+
+    .body-user-cmt {
+        font-size: 14px;
+    }
+}

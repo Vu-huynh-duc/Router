@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.blog-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.id-blog-item {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.content-blog-item {
+    line-height: 1.6;
+}
+
+.desc-btn {
+    margin-top: auto;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #7ba1f3;
+    color: rgb(250, 250, 250);
+    cursor: pointer;
+}
+
+.desc-btn:hover {
+    background-color: #5781f6;
+}
