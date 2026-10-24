@@ -1,0 +1,129 @@
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    // Trạng thái ban đầu: trong suốt
+    opacity: 0;
+
+    transition: opacity 250ms ease;
+}
+
+.inner {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 20px;
+
+    box-shadow:
+        0 24px 60px rgba(15, 23, 42, 0.18),
+        0 4px 12px rgba(15, 23, 42, 0.06);
+
+    // Trạng thái ban đầu: hơi nhỏ, thấp hơn và trong suốt
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.inner.visible {
+    transform: translateY(0) scale(1);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    color: #64748b;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    &:hover {
+        color: #0f172a;
+        background: #f1f5f9;
+        transform: rotate(90deg);
+    }
+
+    &:focus-visible {
+        outline: 2px solid #6366f1;
+        outline-offset: 3px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 16px;
+    }
+
+    .inner {
+        max-height: calc(100vh - 32px);
+        padding: 28px 20px 24px;
+        border-radius: 16px;
+    }
+
+    .closeBtn {
+        top: 24px;
+        right: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .overlay,
+    .inner {
+        transition: none;
+    }
+}

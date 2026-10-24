@@ -1,15 +1,19 @@
-import React from "react"
+import { memo, useState } from "react"
+
+function Child( {name}) {
+    console.log("Child render");
+    return <h1>{name}</h1>
+}
+const MemoChild = memo(Child);
 
 const Counter = () => {
-    const [count, setCount] = React.useState(0)
+    const [count, setCount] = useState(0)
 
-    return <>
-        <h1>Counter</h1>
-        <h2 style={{ color: count > 0 ? 'green' : count < 0 ? 'red' : 'gray' }}>Số: {count} </h2>
-        <p>Trạng thái: {count > 0 ? 'dương' : count < 0 ? 'âm' : 'bằng không'}</p>
-        <button onClick={() => setCount(count - 1)}>Giảm</button>
-        <button onClick={() => setCount(0)}>Reset</button>
-        <button onClick={() => setCount(count + 1)}>Tăng</button>
+    return <>       
+                
+        <button onClick={() => setCount(count + 1)}>Counter is {count}</button>
+        <MemoChild name="minh">                        
+        </MemoChild>
 
     </>
 }

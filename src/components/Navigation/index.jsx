@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom"
+import styles from "./Navigation.module.scss"
 
-const Navigation = () => {
+function Navigation() {
     return <nav>
-        <ul>
+        <ul className = {styles.navigation}>
+            <li>
+                <NavLink to="/">Home</NavLink>
+            </li>
             <li>
                 <NavLink to="/buttons">Buttons</NavLink>
             </li>
@@ -20,6 +24,12 @@ const Navigation = () => {
             </li>
             <li>
                 <NavLink to="/weather">Weather</NavLink>
+            </li>
+            <li>
+                <NavLink to="/admin">Admin</NavLink>
+            </li>
+            <li>
+                <NavLink to="/post">Post</NavLink>
             </li>
         </ul>
 
